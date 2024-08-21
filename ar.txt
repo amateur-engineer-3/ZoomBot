@@ -1,0 +1,75 @@
+int motorLPin1 = 12;
+int motorLPin2 = 10;
+int motorDPin1 = 8;
+int motorDPin2 = 6;
+int senzorPin = A1;
+int napon = 0;
+
+
+void setup() {
+  pinMode(motorLPin1, OUTPUT);
+  pinMode(motorLPin2, OUTPUT);
+  pinMode(motorDPin1, OUTPUT);
+  pinMode(motorDPin2, OUTPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(A4, INPUT);
+  pinMode(A5, INPUT);
+  stoj();
+  pravo();
+
+}
+
+void loop() {
+  stoj();
+  pravo();
+
+  int d1 = analogRead(A1); // d
+  int d2 = analogRead(A2); // s
+  int d3 = analogRead(A4); // a
+  int d4 = analogRead(A5); // w
+  
+  if(d4 < 700){ 
+    naprijed();
+  }else if(d2 < 700){
+    nazad();
+  }
+
+  if(d1 < 700){
+    desno();
+  }else if(d3 < 700){
+    lijevo();
+  }
+
+  delay(20);
+}
+
+void naprijed(){
+  digitalWrite(motorLPin1, LOW);
+  digitalWrite(motorLPin2, LOW);
+}
+
+void nazad(){
+  digitalWrite(motorLPin1, HIGH);
+  digitalWrite(motorLPin2, HIGH);
+}
+
+void stoj(){
+  digitalWrite(motorLPin1, HIGH);
+  digitalWrite(motorLPin2, LOW);
+}
+
+void desno(){
+  digitalWrite(motorDPin1, LOW);
+  digitalWrite(motorDPin2, LOW);
+}
+
+void lijevo(){
+  digitalWrite(motorDPin1, HIGH);
+  digitalWrite(motorDPin2, HIGH);
+}
+
+void pravo(){
+  digitalWrite(motorDPin1, HIGH);
+  digitalWrite(motorDPin2, LOW);
+}

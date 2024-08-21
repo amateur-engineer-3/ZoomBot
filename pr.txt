@@ -1,0 +1,63 @@
+boolean[] dugmad;
+
+void setup(){
+  size(800,500);
+  background(0);
+  
+  dugmad  = new boolean[4];
+}
+
+void draw(){
+  if(dugmad[0]){
+    fill(255);
+  }else{
+    fill(0);
+  }
+  rect(0,0,width/4,height);
+  
+  if(dugmad[1]){
+    fill(255);
+  }else{
+    fill(0);
+  }
+  rect(width/4,0,width/4,height);
+  
+  if(dugmad[2]){
+    fill(255);
+  }else{
+    fill(0);
+  }
+  rect(2*width/4,0,width/4,height);
+  
+  if(dugmad[3]){
+    fill(255);
+  }else{
+    fill(0);
+  }
+  rect(3*width/4,0,width/4,height);
+  
+}
+
+void keyPressed(){
+  if(key == 'w' || key == 'W'){
+    dugmad[0] = true;
+  }else if(key == 'a' || key == 'A'){
+    dugmad[1] = true;
+  }else if(key == 's' || key == 'S'){
+    dugmad[2] = true;
+  }else if(key == 'd' || key == 'D'){
+    dugmad[3] = true;
+  }
+}
+
+void keyReleased(){
+    if(key == 'w' || key == 'W'){
+    dugmad[0] = false;
+  }else if(key == 'a' || key == 'A'){
+    dugmad[1] = false;
+  }else if(key == 's' || key == 'S'){
+    dugmad[2] = false;
+  }else if(key == 'd' || key == 'D'){
+    dugmad[3] = false;
+  }
+}
